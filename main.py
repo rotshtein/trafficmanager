@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 from TrafficManager import TrafficManager
 from time import sleep
 import argparse
