@@ -35,12 +35,14 @@ def main():
     args = parser.parse_args(argv[1:])  # ('-r 50000 -t 50001 -f dst="192.168.4.*" -i USB' ).split())
 
     if args.list == True:
-        from scapy.all import get_if_list, get_windows_if_list
+        #  from scapy.all import get_if_list
         if os.name == 'nt':
+            from scapy.all import  get_windows_if_list
             list = get_windows_if_list()
             for iface in list:
                 print (f'{iface["description"]} \t\t {iface["ips"]}')
         else:
+            from scapy.all import get_if_list
             list = get_if_list()
             for iface in list:
                 print (iface)
