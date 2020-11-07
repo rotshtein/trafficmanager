@@ -1,0 +1,6 @@
+2020-11-06 16:22:08,844 — main — INFO:	Traffic Manager starts
+2020-11-06 16:22:08,851 — Receiver — DEBUG:	Receiver started: iface=USB Gigabit Ethernet, filter=net 192.168.4.0/24, port=51000
+2020-11-06 16:22:08,853 — Receiver — DEBUG:	Receiver thread started
+2020-11-06 16:22:08,854 — Transmitter — DEBUG:	Transmitter started: iface=USB Gigabit Ethernet, filter=net 192.168.4.0/24, port=52000
+2020-11-06 16:22:08,855 — Transmitter — DEBUG:	Transmitter thread started
+2020-11-06 16:22:08,856 — main — INFO:	Traffic Manager active
