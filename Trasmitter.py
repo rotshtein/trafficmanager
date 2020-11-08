@@ -7,7 +7,7 @@ class Transmitter(threading.Thread):
     def __init__(self, iface, filter, port=50000):
         super().__init__()
         self.log = logging.getLogger(self.__class__.__name__)
-        self.log.debug(f'Transmitter started: iface={iface}, filter={filter}, port={port}')
+        self.log.debug('Transmitter started: iface=%s, filter=%s, port=%s' % (str(iface), str(filter), str(port)))
         self.iface = iface
         self.filter = filter
         self._stopRun = False
@@ -28,11 +28,11 @@ class Transmitter(threading.Thread):
             try:
                 data, addr = self.sock.recvfrom(1500)
                 # print (addr)
-                p = Packet(data)
+                p = IP(data)
                 if p is not None:
                     send(p)
             except Exception as e:
-                self.log.exception(f'Error in Transmitter thread {str(e)}')
+                self.log.exception('Error in Transmitter thread %s' % str(e))
         self.log.debug('Transmitter thread stoped')
 
 
