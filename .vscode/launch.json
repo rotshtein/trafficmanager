@@ -17,7 +17,7 @@
             "request": "launch",
             "program": "${workspaceFolder}/main.py",
             "console": "integratedTerminal",
-            "args": ["-r", "51000", "-t", "52000", "-f", "net 192.168.4.0/24", "-i", "USB Gigabit Ethernet"]
+            "args": ["-t", "10102", "-r", "10101", "-f", "net 192.168.4.0/24", "-i", "eth1"]
         }
     ]
 }
