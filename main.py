@@ -40,7 +40,8 @@ def main():
             from scapy.all import  get_windows_if_list
             list = get_windows_if_list()
             for iface in list:
-                print (f'{iface["description"]} \t\t {iface["ips"]}')
+                print ('%s %s' % (iface["description"],iface["ips"]))
+                pass
         else:
             from scapy.all import get_if_list
             list = get_if_list()

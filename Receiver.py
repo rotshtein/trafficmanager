@@ -8,7 +8,7 @@ class Receiver(threading.Thread):
     def __init__(self, iface, filter, port=50000):
         super().__init__()
         self.log = logging.getLogger(self.__class__.__name__)
-        self.log.debug(f'Receiver started: iface={iface}, filter={filter}, port={port}')
+        self.log.debug('Receiver started: iface=%s, filter=%s, port=%s' % (str(iface), str(filter), str(port)))
         self.iface = iface
         self.filter = filter
         self._stopRun = False
@@ -31,7 +31,7 @@ class Receiver(threading.Thread):
             try:
                 sniff(iface=self.iface, filter=self.filter, prn=self.pkt_callback, store=0, timeout=1)
             except Exception as e:
-                self.log.exception(f'Error in Receiver thread {str(e)}')
+                self.log.exception('Error in Receiver thread %s' % str(e))
         self.log.debug('Receiver thread stoped')
         self._is_running = False
 
@@ -46,9 +46,9 @@ class Receiver(threading.Thread):
             try:
                 self.sock.sendto(buffer,('127.0.0.1', self.port))
             except Exception as ex:
-                self.log.exception(f'Error in Receiver / sendto 127.0.0.1 {str(ex)}')
+                self.log.exception('Error in Receiver / sendto 127.0.0.1 ' % str(ex))
         except Exception as e:
-            self.log.exception(f'Error in Receiver / pkt_callback {str(e)}')
+            self.log.exception('Error in Receiver / pkt_callback ' % str(e))
         
 
 
